@@ -42,10 +42,10 @@ const icons: Record<string, ReactNode> = {
 type Step = { icon: keyof typeof icons; title: string; text: string };
 
 const steps: Step[] = [
-  { icon: "grid", title: "Apply and get accepted", text: "Tell us about your goals. We review every application to build strong, balanced cohorts." },
-  { icon: "rings", title: "Learn with your cohort", text: "Join live sessions, complete weekly milestones, and get feedback from mentors who work in tech." },
-  { icon: "wrench", title: "Build real projects", text: "Ship work that solves actual problems. Finish with a portfolio that proves your skills." },
-  { icon: "play", title: "Launch your career", text: "Use our network, resume reviews, and interview prep to land the job you want." },
+  { icon: "grid", title: "Apply and get accepted", text: "Tell us where you are — beginner or early-career. We build balanced virtual cohorts." },
+  { icon: "rings", title: "Learn with your cohort", text: "Live classes, peer engagement, and mentorship keep you moving with the group." },
+  { icon: "wrench", title: "Build real projects", text: "Hands-on projects and workshops simulate industry scenarios and grow soft skills too." },
+  { icon: "play", title: "Grow your career", text: "Leave with a portfolio, real experience, and a community that continues after the program." },
 ];
 
 function StepItem({ step, index, className = "" }: { step: Step; index: number; className?: string }) {
@@ -61,10 +61,10 @@ function StepItem({ step, index, className = "" }: { step: Step; index: number; 
 
 export default function Process() {
   return (
-    <section id="process" className="scroll-mt-24 bg-neutral-50 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
+    <section id="process" className="dot-panel-soft scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
       <div className="mx-auto w-full max-w-5xl">
         <header className="mx-auto max-w-xl text-center">
-          <p className="text-xs font-bold uppercase tracking-tight text-neutral-950">Process</p>
+          <p className="text-xs font-bold uppercase tracking-tight text-brand">Process</p>
           <h2 className="mt-3 text-balance text-3xl font-bold uppercase leading-[0.95] tracking-tight text-neutral-950 sm:text-4xl md:text-5xl">
             From application to hired in four steps
           </h2>
@@ -92,7 +92,7 @@ export default function Process() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-          <ApplyButton className="rounded-full bg-sky-400 px-5 py-2 text-xs font-medium text-neutral-950 transition-colors hover:bg-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500">
+          <ApplyButton className="rounded-full bg-brand px-5 py-2 text-xs font-medium text-white transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
             Apply now
           </ApplyButton>
           <Link href="#faq" className="group inline-flex items-center gap-1 rounded text-xs font-medium text-neutral-900">

@@ -9,15 +9,15 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Ctrl School — Learn to build. Get hired.",
+  title: "Ctrl School — Gain the skills to build and grow the career you envision",
   description:
-    "Cohort-based programs in web development, data, design, and product. Learn with mentors, ship a portfolio, and launch a career in tech.",
+    "Virtual, cohort-based tech education in Lagos for beginners and early-career professionals. Product management, data analytics, front-end development, and more.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} h-full antialiased`}>
-      <body className={`${spaceGrotesk.className} flex min-h-full flex-col bg-white text-neutral-950`}>
+      <body className={`${spaceGrotesk.className} flex min-h-full flex-col text-neutral-950`}>
         {children}
       </body>
     </html>

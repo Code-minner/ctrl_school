@@ -17,6 +17,7 @@ import {
   plans,
   programs,
   yearlyTotal,
+  formatNaira,
   type Billing,
   type PlanName,
   type ProgramName,
@@ -118,7 +119,7 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
           >
             <div className="flex items-center justify-between border-b border-neutral-100 px-5 py-4 sm:px-6">
               <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-sky-600">Ctrl School</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#5842be]">Ctrl School</p>
                 <h2 id={titleId} className="text-lg font-bold tracking-tight text-neutral-950 sm:text-xl">
                   {submitted ? "Application received" : "Apply to a cohort"}
                 </h2>
@@ -127,7 +128,7 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                 ref={closeBtnRef}
                 type="button"
                 onClick={close}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 hover:bg-neutral-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 hover:bg-neutral-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5842be]"
                 aria-label="Close"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
@@ -146,7 +147,7 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                       type="button"
                       onClick={() => setPlanName(p.name)}
                       className={`rounded-xl px-2 py-2 text-xs font-bold uppercase tracking-tight transition-colors ${
-                        planName === p.name ? "bg-sky-400 text-neutral-950" : "bg-white/10 text-white hover:bg-white/15"
+                        planName === p.name ? "bg-brand-lime text-neutral-950" : "bg-white/10 text-white hover:bg-white/15"
                       }`}
                     >
                       {p.name}
@@ -170,19 +171,21 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                   ))}
                 </div>
 
-                <p className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
-                  ${price}
+                <p className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
+                  {formatNaira(price)}
                   <span className="text-lg font-semibold text-white/55">/mo</span>
                 </p>
                 <p className="mt-2 text-sm text-white/70">{plan.blurb}</p>
                 {billing === "yearly" && (
-                  <p className="mt-1 text-xs text-sky-300">Billed ${yearlyTotal(plan).toLocaleString()} today, then yearly.</p>
+                  <p className="mt-1 text-xs text-brand-lime">
+                    Billed {formatNaira(yearlyTotal(plan))} today, then yearly.
+                  </p>
                 )}
 
                 <ul className="mt-6 flex flex-col gap-2.5 text-sm text-white/85">
                   {plan.features.map((f) => (
                     <li key={f} className="flex items-start gap-2">
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="mt-0.5 shrink-0 text-sky-400">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="mt-0.5 shrink-0 text-brand-lime">
                         <path d="m2.5 7.5 3 3 6-7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                       {f}
@@ -209,7 +212,7 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                     <button
                       type="button"
                       onClick={close}
-                      className="mt-8 self-start rounded-full bg-sky-400 px-5 py-2.5 text-sm font-medium text-neutral-950 hover:bg-sky-300"
+                      className="mt-8 self-start rounded-full bg-brand px-5 py-2.5 text-sm font-medium text-white hover:bg-brand-dark"
                     >
                       Back to the site
                     </button>
@@ -224,7 +227,7 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                         required
                         name="name"
                         autoComplete="name"
-                        className="mt-1.5 w-full rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-950 outline-none placeholder:text-neutral-400 focus:border-sky-400 focus:bg-white focus:ring-2 focus:ring-sky-200"
+                        className="mt-1.5 w-full rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-950 outline-none placeholder:text-neutral-400 focus:border-[#5842be] focus:bg-white focus:ring-2 focus:ring-[#5842be]/30"
                         placeholder="Ada Okafor"
                       />
                     </label>
@@ -236,7 +239,7 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                         type="email"
                         name="email"
                         autoComplete="email"
-                        className="mt-1.5 w-full rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-950 outline-none placeholder:text-neutral-400 focus:border-sky-400 focus:bg-white focus:ring-2 focus:ring-sky-200"
+                        className="mt-1.5 w-full rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-950 outline-none placeholder:text-neutral-400 focus:border-[#5842be] focus:bg-white focus:ring-2 focus:ring-[#5842be]/30"
                         placeholder="you@email.com"
                       />
                     </label>
@@ -251,8 +254,8 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                             onClick={() => setProgram(p)}
                             className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
                               program === p
-                                ? "bg-neutral-950 text-white"
-                                : "bg-neutral-100 text-neutral-800 hover:bg-neutral-200"
+                                ? "bg-brand text-white"
+                                : "bg-brand-lime/50 text-neutral-900 hover:bg-brand-lime"
                             }`}
                           >
                             {p}
@@ -266,16 +269,16 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                       <textarea
                         name="goals"
                         rows={3}
-                        className="mt-1.5 w-full resize-none rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-950 outline-none placeholder:text-neutral-400 focus:border-sky-400 focus:bg-white focus:ring-2 focus:ring-sky-200"
+                        className="mt-1.5 w-full resize-none rounded-xl border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-sm font-medium text-neutral-950 outline-none placeholder:text-neutral-400 focus:border-[#5842be] focus:bg-white focus:ring-2 focus:ring-[#5842be]/30"
                         placeholder="A job in frontend, a stronger portfolio, a career switch…"
                       />
                     </label>
 
                     <button
                       type="submit"
-                      className="mt-1 rounded-full bg-sky-400 py-3 text-sm font-semibold text-neutral-950 transition-colors hover:bg-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+                      className="mt-1 rounded-full bg-brand py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
                     >
-                      Submit application · {plan.name} ${price}/mo
+                      Submit application · {plan.name} {formatNaira(price)}/mo
                     </button>
                   </form>
                 )}

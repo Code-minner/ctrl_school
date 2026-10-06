@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useApply } from "./ApplyProvider";
 
 const links = [
+  { label: "About", href: "#about" },
   { label: "Programs", href: "#programs" },
   { label: "How it works", href: "#process" },
   { label: "Pricing", href: "#pricing" },
@@ -34,10 +35,10 @@ export default function Header() {
   }, [menuOpen]);
 
   const navLink =
-    "text-[13px] font-medium text-neutral-900 transition-colors hover:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 rounded";
+    "text-[13px] font-medium text-neutral-900 transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-neutral-100 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-brand/10 bg-white/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between gap-4 px-4 py-3 sm:px-6 md:px-12">
         <Link href="/" className="shrink-0" onClick={() => setMenuOpen(false)}>
           <Image
@@ -60,14 +61,14 @@ export default function Header() {
           <div className="flex items-center gap-2 pl-1">
             <Link
               href="#contact"
-              className="rounded-full bg-neutral-100 px-4 py-1.5 text-[13px] font-medium text-neutral-900 transition-colors hover:bg-neutral-200"
+              className="rounded-full bg-brand-lime px-4 py-1.5 text-[13px] font-medium text-neutral-950 transition-colors hover:bg-brand-lime-deep"
             >
               Book a call
             </Link>
             <button
               type="button"
               onClick={onApply}
-              className="rounded-full bg-sky-400 px-4 py-1.5 text-[13px] font-medium text-neutral-950 transition-colors hover:bg-sky-300"
+              className="rounded-full bg-brand px-4 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-brand-dark"
             >
               Apply
             </button>
@@ -109,14 +110,14 @@ export default function Header() {
           <div className="mt-4 flex flex-col gap-2 sm:flex-row">
             <Link
               href="#contact"
-              className="rounded-full bg-neutral-100 px-5 py-2.5 text-center text-sm font-medium text-neutral-900"
+              className="rounded-full bg-brand-lime px-5 py-2.5 text-center text-sm font-medium text-neutral-950"
               onClick={() => setMenuOpen(false)}
             >
               Book a call
             </Link>
             <button
               type="button"
-              className="rounded-full bg-sky-400 px-5 py-2.5 text-center text-sm font-medium text-neutral-950"
+              className="rounded-full bg-brand px-5 py-2.5 text-center text-sm font-medium text-white"
               onClick={onApply}
             >
               Apply

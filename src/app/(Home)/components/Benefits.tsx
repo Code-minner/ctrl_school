@@ -7,17 +7,17 @@ const tiles: BentoTile[] = [
   {
     variant: "feature",
     eyebrow: "Curriculum",
-    title: "Career-focused learning paths for real tech roles",
-    text: "We teach the skills companies actually hire for. No filler, no outdated theory.",
-    color: "bg-cyan-800",
+    title: "Industry-relevant paths for real tech roles",
+    text: "Product, data, front-end, and more — updated to match current industry demand.",
+    color: "bg-brand",
     image: "/images/workshop.jpg",
     imageAlt: "Students in a live workshop with an instructor at the whiteboard",
     href: "#programs",
   },
   {
     variant: "compact",
-    title: "Workshops that sharpen your practical skills",
-    text: "Live sessions on tools and workflows used daily.",
+    title: "Live classes and expert workshops",
+    text: "Interactive sessions that sharpen technical and soft skills.",
     color: "bg-stone-600",
     image: "/images/projects.jpg",
     imageAlt: "Close-up of a student building an interface on a laptop",
@@ -25,8 +25,8 @@ const tiles: BentoTile[] = [
   },
   {
     variant: "compact",
-    title: "Flexible learning that still has structure",
-    text: "Evenings and weekends, with milestones that keep you moving.",
+    title: "Cohorts plus self-paced options",
+    text: "Hybrid learning that fits beginners and early-career professionals.",
     color: "bg-teal-700",
     image: "/images/cohorts.jpg",
     imageAlt: "Two students working together at a table",
@@ -34,9 +34,9 @@ const tiles: BentoTile[] = [
   },
   {
     variant: "wide",
-    title: "A network that lasts",
-    text: "Your community, resources, and mentors stay with you long after you finish the program.",
-    color: "bg-amber-800",
+    title: "A community beyond the classroom",
+    text: "Stay connected for continuous learning, mentorship, and career growth after you finish.",
+    color: "bg-brand-dark",
     image: "/images/process.jpg",
     imageAlt: "Alumni sharing a meal after class",
     href: "#apply",
@@ -44,23 +44,25 @@ const tiles: BentoTile[] = [
 ];
 
 const stats = [
-  { label: "Graduates", to: 2400, suffix: "+", note: "Alumni now working in tech roles worldwide" },
-  { label: "Job placement", to: 87, suffix: "%", note: "Hired within six months of finishing a program" },
-  { label: "Salary increase", to: 42, suffix: "%", note: "Average pay bump after completing a cohort" },
-  { label: "Community size", to: 12, suffix: "k", note: "Active members learning and building together" },
+  { label: "Founded", to: 2024, suffix: "", note: "Co-founded by software engineers in Lagos" },
+  { label: "Focus", to: 1, suffix: " yr", note: "Built for beginners and early-career talent" },
+  { label: "Learning", to: 100, suffix: "%", note: "Virtual cohorts with live, hands-on practice" },
+  { label: "Mission", to: 10, suffix: "+", note: "Commitments to accessible tech literacy in Africa" },
 ];
 
 export default function Benefits() {
   return (
     <>
-      <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
+      <section className="dot-panel px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
         <div className="mx-auto w-full max-w-5xl">
           <header className="mx-auto max-w-xl text-center">
-            <p className="text-xs font-bold uppercase tracking-tight text-neutral-950">Benefits</p>
+            <p className="text-xs font-bold uppercase tracking-tight text-brand">Benefits</p>
             <h2 className="mt-3 text-balance text-3xl font-bold uppercase leading-[0.95] tracking-tight text-neutral-950 sm:text-4xl md:text-5xl">
               Everything you need to advance
             </h2>
-            <p className="mt-5 text-base text-neutral-700">A complete system built for your career in tech.</p>
+            <p className="mt-5 text-base text-neutral-700">
+              Inclusive, accessible tech education that bridges foundational knowledge and real-world application.
+            </p>
           </header>
 
           <div className="mt-12 md:mt-16">
@@ -69,15 +71,16 @@ export default function Benefits() {
         </div>
       </section>
 
-      <section className="bg-neutral-50 px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
+      <section className="dot-panel-soft px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
         <div className="mx-auto grid w-full max-w-5xl items-center gap-10 md:grid-cols-[1fr_1.6fr] md:gap-16">
           <div>
-            <p className="text-xs font-bold uppercase tracking-tight text-neutral-950">Results</p>
+            <p className="text-xs font-bold uppercase tracking-tight text-brand">At a glance</p>
             <h2 className="mt-3 text-balance text-3xl font-bold uppercase leading-[0.95] tracking-tight text-neutral-950 sm:text-4xl md:text-5xl">
-              The numbers do not lie
+              Built for workforce readiness
             </h2>
             <p className="mt-6 max-w-sm text-base leading-relaxed text-neutral-700">
-              We measure what matters. Your career moves forward or we have not done our job.
+              Since {2024}, Ctrl School has positioned itself as an innovative, inclusive platform for digital literacy
+              and career transition into tech.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link

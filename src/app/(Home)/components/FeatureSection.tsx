@@ -21,12 +21,12 @@ const features: Feature[] = [
   {
     id: "cohorts",
     eyebrow: "Cohorts",
-    heading: "Learn together, finish strong, get hired",
+    heading: "Virtual cohorts built for real progress",
     description:
-      "You do not learn to code alone. You learn with a small group of driven people moving at the same pace. The structure keeps you honest and the deadlines keep you moving.",
+      "Learn with a group of beginners and early-career professionals moving at the same pace. Live classes, deadlines, and peer engagement keep you accountable from day one.",
     highlights: [
-      { title: "Structured", text: "A clear path with weekly milestones, live sessions, and real deadlines." },
-      { title: "Collaborative", text: "Work alongside peers who push you further than you would go alone." },
+      { title: "Structured", text: "Weekly milestones, live sessions, and expert-led workshops." },
+      { title: "Collaborative", text: "Peer engagement and mentorship sit at the centre of every cohort." },
     ],
     image: "/images/cohorts.jpg",
     imageAlt: "Two students collaborating on a laptop during a cohort session",
@@ -35,12 +35,12 @@ const features: Feature[] = [
   {
     id: "projects",
     eyebrow: "Projects",
-    heading: "Build real things from your first week",
+    heading: "Bridge theory and real-world application",
     description:
-      "You will not just watch videos and take notes. You will build projects that solve actual problems and prove you can do the work.",
+      "Practical projects simulate industry scenarios so you leave with technical skill and soft skills — problem-solving, communication, and teamwork.",
     highlights: [
-      { title: "Portfolio", text: "Finish with work you can show to any hiring manager." },
-      { title: "Practical", text: "Learn the tools and workflows used on real tech teams." },
+      { title: "Portfolio", text: "Finish with work that shows employers what you can do." },
+      { title: "Practical", text: "Hands-on learning tailored to today’s tech roles." },
     ],
     image: "/images/projects.jpg",
     imageAlt: "Hands typing on a laptop while building a product interface",
@@ -50,12 +50,12 @@ const features: Feature[] = [
   {
     id: "mentorship",
     eyebrow: "Mentorship",
-    heading: "Learn from people who do the work",
+    heading: "Guided by people who ship for a living",
     description:
-      "Your mentors are not career lecturers. They are engineers, designers, and product people working in the industry right now. They review your work, answer hard questions, and tell you what actually matters.",
+      "Ctrl School was co-founded by professional software engineers. Mentors and facilitators help you apply what you learn and grow beyond the classroom.",
     highlights: [
-      { title: "Direct", text: "Get feedback on your work every single week." },
-      { title: "Connected", text: "Join a community that stays with you after graduation." },
+      { title: "Direct", text: "Feedback, workshops, and support throughout your cohort." },
+      { title: "Inclusive", text: "Opportunities for learners from every background." },
     ],
     image: "/images/mentorship.jpg",
     imageAlt: "A mentor reviewing a student's work on a laptop",
@@ -71,7 +71,7 @@ export default function Features() {
         <section
           key={f.id}
           id={f.id}
-          className={`scroll-mt-24 ${f.tone === "soft" ? "bg-neutral-50" : "bg-white"} px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28`}
+          className={`scroll-mt-24 ${f.tone === "soft" ? "dot-panel-soft" : "dot-panel"} px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28`}
         >
           <div className="mx-auto grid w-full max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-16">
             <div className={f.imageFirst ? "md:order-2" : ""}>

@@ -5,29 +5,29 @@ import Carousel from "@/components/Carousel";
 const stories = [
   {
     quote:
-      "I went from waiting tables to a frontend developer job in seven months. The cohort kept me accountable when I wanted to quit.",
-    name: "Maya Chen",
-    role: "Frontend Developer, Shopify",
+      "The virtual cohort kept me accountable. Live classes and peer reviews made front-end finally click for me.",
+    name: "Tolu Adebayo",
+    role: "Front-end learner, Lagos",
   },
   {
-    quote: "The mentors did not just teach theory. They showed me exactly what hiring managers look for in a data portfolio.",
-    name: "David Okafor",
-    role: "Data Analyst, Stripe",
+    quote: "I came in with almost no experience. Ctrl School’s projects felt like real work — not another tutorial loop.",
+    name: "Chiamaka Okeke",
+    role: "Data analytics cohort",
   },
   {
-    quote: "I had tried learning design alone for a year. Ctrl School gave me structure, feedback, and a community that made it stick.",
-    name: "Sofia Reyes",
-    role: "Product Designer, Figma",
+    quote: "Mentorship and workshops helped me practise product thinking the way teams actually ship.",
+    name: "Ibrahim Musa",
+    role: "Product management track",
   },
   {
-    quote: "The weekly deadlines were the difference. I finally finished projects instead of bookmarking another tutorial.",
-    name: "Kwame Mensah",
-    role: "Full-stack Developer, Andela",
+    quote: "As an intern switching into tech, the structure and community made the jump feel possible.",
+    name: "Adaeze Nwosu",
+    role: "Early-career professional",
   },
   {
-    quote: "Career coaching on the Career plan was blunt and useful. I knew exactly how to talk about my work in interviews.",
-    name: "Amira Hassan",
-    role: "Product Manager, Paystack",
+    quote: "I stayed in the community after my cohort. Continuous learning is part of how Ctrl School works.",
+    name: "Emeka Johnson",
+    role: "Software development track",
   },
 ];
 
@@ -45,7 +45,7 @@ function Stars() {
 
 export default function StoriesCarousel() {
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
+    <section className="dot-panel px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-28">
       <div className="mx-auto w-full max-w-5xl">
         <header className="mx-auto max-w-xl text-center">
           <h2 className="text-balance text-3xl font-bold uppercase leading-[0.95] tracking-tight text-neutral-950 sm:text-4xl md:text-5xl">

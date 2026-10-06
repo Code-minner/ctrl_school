@@ -77,7 +77,7 @@ export default function Carousel({ children, autoPlay = 4500, className = "", ar
             type="button"
             aria-label="Previous slide"
             onClick={() => goTo(index - 1)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5842be]"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
               <path d="M8.5 3 4.5 7l4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -92,7 +92,7 @@ export default function Carousel({ children, autoPlay = 4500, className = "", ar
                 aria-selected={i === index}
                 aria-label={`Go to slide ${i + 1}`}
                 onClick={() => goTo(i)}
-                className={`h-2 rounded-full transition-all ${i === index ? "w-6 bg-sky-400" : "w-2 bg-neutral-300 hover:bg-neutral-400"}`}
+                className={`h-2 rounded-full transition-all ${i === index ? "w-6 bg-brand" : "w-2 bg-brand-lime hover:bg-brand-lime-deep"}`}
               />
             ))}
           </div>
@@ -100,7 +100,7 @@ export default function Carousel({ children, autoPlay = 4500, className = "", ar
             type="button"
             aria-label="Next slide"
             onClick={() => goTo(index + 1)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-900 hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#5842be]"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
               <path d="M5.5 3 9.5 7l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

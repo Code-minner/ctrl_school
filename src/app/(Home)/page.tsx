@@ -1,4 +1,5 @@
 import Hero from "./components/Hero";
+import About from "./components/About";
 import Features from "./components/FeatureSection";
 import Benefits from "./components/Benefits";
 import Programs from "./components/Programs";
@@ -16,10 +17,11 @@ export default function Home() {
   return (
     <ApplyProvider>
       <ScrollOutInit />
-      <div className="min-h-screen bg-white text-neutral-950">
+      <div className="site-shell min-h-screen text-neutral-950">
         <Header />
         <main>
           <Hero />
+          <About />
           <Features />
           <Benefits />
           <Programs />
