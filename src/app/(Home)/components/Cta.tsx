@@ -28,7 +28,7 @@ export default function Cta() {
 
         <div className="relative mt-12 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-neutral-200 sm:mt-14 sm:aspect-[16/9] md:mt-16">
           <Image
-            src="/images/cta.jpg"
+            src="/images/WhatsApp Image 2026-10-09 at 08.30.26 (1).jpeg"
             alt="Students gathered around a laptop after finishing a project"
             fill
             sizes="(min-width: 1024px) 1024px, 100vw"

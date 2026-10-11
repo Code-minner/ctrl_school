@@ -31,7 +31,7 @@ export default function Hero() {
 
         <div className="relative mt-12 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-neutral-100 sm:mt-16 sm:aspect-[16/9] md:mt-20">
           <Image
-            src="/images/hero.jpg"
+            src="/images/WhatsApp Image 2026-10-09 at 08.39.42 (1).jpeg"
             alt="Students collaborating on laptops in a bright Ctrl School classroom"
             fill
             priority

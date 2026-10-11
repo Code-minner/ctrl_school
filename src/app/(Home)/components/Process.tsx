@@ -79,7 +79,7 @@ export default function Process() {
 
           <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-2xl bg-neutral-200 sm:col-span-2 sm:max-w-md lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:max-w-none">
             <Image
-              src="/images/process.jpg"
+              src="/images/WhatsApp Image 2026-10-09 at 08.39.41.jpeg"
               alt="Students sharing a meal and talking after class"
               fill
               sizes="(min-width: 768px) 360px, 100vw"
