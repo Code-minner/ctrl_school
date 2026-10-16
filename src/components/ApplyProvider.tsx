@@ -47,6 +47,8 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
   const [billing, setBilling] = useState<Billing>("monthly");
   const [program, setProgram] = useState<ProgramName | "">("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const titleId = useId();
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -64,6 +66,8 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
     setBilling(options?.billing ?? "monthly");
     setProgram(options?.program ?? "");
     setSubmitted(false);
+    setSubmitting(false);
+    setError(null);
     setOpen(true);
   }, []);
 
@@ -94,9 +98,41 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
   const plan = getPlan(planName);
   const price = monthlyPrice(plan, billing);
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const fullName = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const goals = String(data.get("goals") ?? "").trim();
+
+    try {
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName,
+          email,
+          goals,
+          program: program || undefined,
+          plan: planName,
+          billing,
+        }),
+      });
+      const payload = (await res.json().catch(() => ({}))) as { error?: string };
+      if (!res.ok) {
+        throw new Error(payload.error || "Could not submit application. Try again.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not submit application.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -274,11 +310,20 @@ export function ApplyProvider({ children }: { children: ReactNode }) {
                       />
                     </label>
 
+                    {error && (
+                      <p className="rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+                        {error}
+                      </p>
+                    )}
+
                     <button
                       type="submit"
-                      className="mt-1 rounded-full bg-brand py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+                      disabled={submitting}
+                      className="mt-1 rounded-full bg-brand py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
                     >
-                      Submit application · {plan.name} {formatNaira(price)}/mo
+                      {submitting
+                        ? "Submitting…"
+                        : `Submit application · ${plan.name} ${formatNaira(price)}/mo`}
                     </button>
                   </form>
                 )}
