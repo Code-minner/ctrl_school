@@ -57,9 +57,27 @@ async function main() {
   `;
   console.log("OK: applications table");
 
-  await sql`CREATE INDEX IF NOT EXISTS applications_email_idx ON applications (email)`;
   await sql`CREATE INDEX IF NOT EXISTS applications_created_at_idx ON applications (created_at DESC)`;
   console.log("OK: applications indexes");
+
+  // Enforce one application per email (safe if constraint already exists)
+  try {
+    await sql`
+      ALTER TABLE applications
+      ADD CONSTRAINT applications_email_unique UNIQUE (email)
+    `;
+    console.log("OK: unique email constraint");
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    if (/already exists|duplicate key/i.test(msg)) {
+      console.log("OK: unique email constraint (already present or cleanup needed)");
+    } else if (/duplicate key value/i.test(msg)) {
+      console.error("Cannot add unique email: duplicate emails already exist. Delete extras in Neon, then re-run.");
+      throw err;
+    } else {
+      console.log("Note:", msg);
+    }
+  }
 
   await sql`
     CREATE TABLE IF NOT EXISTS subscribers (

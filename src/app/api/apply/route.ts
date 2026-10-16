@@ -35,6 +35,17 @@ export async function POST(request: Request) {
     }
 
     const db = sql();
+
+    const existing = await db`
+      SELECT id FROM applications WHERE lower(email) = ${email} LIMIT 1
+    `;
+    if (existing.length > 0) {
+      return NextResponse.json(
+        { error: "This email already has an application. We’ll reach out soon — or email Ctrlschoolafrica@gmail.com if you need to update it." },
+        { status: 409 },
+      );
+    }
+
     const rows = await db`
       INSERT INTO applications (full_name, email, program, plan, billing, price_monthly, goals)
       VALUES (${fullName}, ${email}, ${program}, ${plan.name}, ${billing}, ${price}, ${goals})
@@ -90,6 +101,12 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error("[api/apply]", err);
     const message = err instanceof Error ? err.message : "Could not save application.";
+    if (/unique|duplicate/i.test(message)) {
+      return NextResponse.json(
+        { error: "This email already has an application. We’ll reach out soon — or email Ctrlschoolafrica@gmail.com if you need to update it." },
+        { status: 409 },
+      );
+    }
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

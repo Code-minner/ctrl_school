@@ -3,7 +3,7 @@
 CREATE TABLE IF NOT EXISTS applications (
   id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   full_name     TEXT NOT NULL,
-  email         TEXT NOT NULL,
+  email         TEXT NOT NULL UNIQUE,
   program       TEXT,
   plan          TEXT NOT NULL,
   billing       TEXT NOT NULL CHECK (billing IN ('monthly', 'yearly')),
